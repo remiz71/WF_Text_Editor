@@ -15,9 +15,12 @@ namespace WF_Text_Editor
     public partial class Form1 : Form
     {
         InstalledFontCollection f_col;
+        
+
         public Form1()
         {
             InitializeComponent();
+            richTextBox1.ContextMenuStrip = contextMenuStrip1;
             f_col = new InstalledFontCollection();
             foreach (var item in f_col.Families)
             {
@@ -234,6 +237,21 @@ namespace WF_Text_Editor
             {
                 richTextBox1.SelectionColor = Color_D.Color;
             }    
+        }
+
+        private void richTextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button==MouseButtons.Right)
+            {
+                if (richTextBox1.SelectedText != "")
+                {
+                CutContext.Enabled = true;
+                CopyContext.Enabled = true;
+                }
+                contextMenuStrip1.Show();
+            }
+            
+            
         }
     }
 }

@@ -78,19 +78,25 @@
             this.Color_D = new System.Windows.Forms.ColorDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CopyContext = new System.Windows.Forms.ToolStripMenuItem();
+            this.CutContext = new System.Windows.Forms.ToolStripMenuItem();
+            this.вставитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.msEn.SuspendLayout();
             this.msRu.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 90);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 127);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(692, 430);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = " ";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseClick);
             // 
             // toolStrip1
             // 
@@ -358,7 +364,7 @@
             this.Copybt.Enabled = false;
             this.Copybt.Name = "Copybt";
             this.Copybt.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.Copybt.Size = new System.Drawing.Size(177, 26);
+            this.Copybt.Size = new System.Drawing.Size(224, 26);
             this.Copybt.Text = "Copy";
             this.Copybt.Click += new System.EventHandler(this.copyToolStripButton_Click);
             // 
@@ -367,7 +373,7 @@
             this.Cutbt.Enabled = false;
             this.Cutbt.Name = "Cutbt";
             this.Cutbt.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.Cutbt.Size = new System.Drawing.Size(177, 26);
+            this.Cutbt.Size = new System.Drawing.Size(224, 26);
             this.Cutbt.Text = "Cut";
             this.Cutbt.Click += new System.EventHandler(this.cutToolStripButton_Click);
             // 
@@ -375,7 +381,7 @@
             // 
             this.Pastebt.Name = "Pastebt";
             this.Pastebt.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.Pastebt.Size = new System.Drawing.Size(177, 26);
+            this.Pastebt.Size = new System.Drawing.Size(224, 26);
             this.Pastebt.Text = "Paste";
             this.Pastebt.Click += new System.EventHandler(this.pasteToolStripButton_Click);
             // 
@@ -494,6 +500,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CopyContext,
+            this.CutContext,
+            this.вставитьToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 110);
+            // 
+            // CopyContext
+            // 
+            this.CopyContext.Enabled = false;
+            this.CopyContext.Image = ((System.Drawing.Image)(resources.GetObject("CopyContext.Image")));
+            this.CopyContext.Name = "CopyContext";
+            this.CopyContext.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.CopyContext.Size = new System.Drawing.Size(217, 26);
+            this.CopyContext.Text = "Копировать";
+            this.CopyContext.Click += new System.EventHandler(this.copyToolStripButton_Click);
+            // 
+            // CutContext
+            // 
+            this.CutContext.Enabled = false;
+            this.CutContext.Image = ((System.Drawing.Image)(resources.GetObject("CutContext.Image")));
+            this.CutContext.Name = "CutContext";
+            this.CutContext.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.CutContext.Size = new System.Drawing.Size(217, 26);
+            this.CutContext.Text = "Вырезать";
+            this.CutContext.Click += new System.EventHandler(this.cutToolStripButton_Click);
+            // 
+            // вставитьToolStripMenuItem
+            // 
+            this.вставитьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("вставитьToolStripMenuItem.Image")));
+            this.вставитьToolStripMenuItem.Name = "вставитьToolStripMenuItem";
+            this.вставитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.вставитьToolStripMenuItem.Text = "Вставить";
+            this.вставитьToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -513,6 +558,7 @@
             this.msEn.PerformLayout();
             this.msRu.ResumeLayout(false);
             this.msRu.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,6 +614,10 @@
         private System.Windows.Forms.ToolStripButton CenterAbt;
         private System.Windows.Forms.ToolStripButton RightAlbt;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem CopyContext;
+        private System.Windows.Forms.ToolStripMenuItem CutContext;
+        private System.Windows.Forms.ToolStripMenuItem вставитьToolStripMenuItem;
     }
 }
 
